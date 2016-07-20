@@ -55,7 +55,7 @@ void schliessen() { // state 4
 
 void geschlossen() { // state  3
 
-  if(digitalRead(pinManuell) == HIGH and (rtc.now().hour() >= OeffnungsZeitStunde and rtc.now().minute() >= OeffnungsZeitMinute) and (rtc.now().hour() < OeffnungsZeitStunde and rtc.now().minute() < OeffnungsZeitMinute)) {
+  if((digitalRead(pinManuell) == HIGH) and (rtc.now().hour() >= OeffnungsZeitStunde and rtc.now().minute() >= OeffnungsZeitMinute) and (rtc.now().hour() < SchliessZeitStunde and rtc.now().minute() < SchliessZeitMinute)) {
     stepperStartMillis = currentMillis;
     state = 2; // oeffnen
   }
